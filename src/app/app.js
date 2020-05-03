@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 
-import { RegisterForm } from '../forms/forms';
-import Drop from '../drop/drop';
+import RegisterForm from '../forms/register-form';
+import CandidateForm from '../forms/candidate-form';
 
 const App = (props) => {
     return <div className='app'>
-        <RegisterForm/>
-        <Drop />
+        <CandidateForm />
     </div>
 }
 

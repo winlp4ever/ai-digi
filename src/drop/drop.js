@@ -1,6 +1,8 @@
 import React, {useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 
+import './_drop.scss';
+
 const Drop = (props) => {
     const onDrop = useCallback(acceptedFiles => {
         acceptedFiles.forEach((file) => {
@@ -20,7 +22,10 @@ const Drop = (props) => {
                 })
                 const data = await response.json();
                 if (data.err) console.log(data.err);
-                if (data.link) console.log(data.link);
+                if (data.link) {
+                    console.log(data.link);
+                    if (props.linkHdler) props.linkHdler(data.link);
+                }
             }
             reader.readAsDataURL(file);
         })
@@ -33,7 +38,7 @@ const Drop = (props) => {
             {
                 isDragActive ?
                 <p>Drop the files here ...</p> :
-                <p>Drag 'n' drop some files here, or click to select files</p>
+                <p>{props.msg}</p>
             }
         </div>
     )

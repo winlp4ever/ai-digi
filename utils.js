@@ -2,8 +2,12 @@ const path = require('path');
 const fs = require('fs');
 const _cliProgress = require('cli-progress');
 const request = require('request');
+const mailer = require('nodemailer');
 var AWS = require('aws-sdk');
 AWS.config.loadFromPath(path.join(__dirname, 'aws-credentials', 'accessKeys.json'));
+
+var mailCredentials = require(path.join(__dirname, 'mail-credentials', 'config.js'));
+var Transporter = mailer.createTransport(mailCredentials)
 
 var uploadToS3 = function (file, fn, callback) {
     s3 = new AWS.S3({apiVersion: '2006-03-01'});
@@ -28,6 +32,18 @@ var uploadToS3 = function (file, fn, callback) {
     });
 }
 
+var mailTo = async function (sender, dest, subj, cnt) {
+    let info = await Transporter.sendMail({
+        from: sender,
+        to: dest,
+        subject: subj,
+        text: cnt,
+        html: cnt
+    }) 
+    console.log(info.messageId);
+}
+
 module.exports = {
     uploadToS3: uploadToS3,
+    mailTo: mailTo
 }

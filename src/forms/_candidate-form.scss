@@ -1,0 +1,79 @@
+.fill {
+    input, label {
+        font: {
+            family: 'Baloo Chettan 2', sans-serif;
+            size: 0.8em;
+        }
+    }
+}
+
+.candidate-form {
+    width: 70%;
+    margin: auto;
+    .form-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    h1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .fill {
+        width: 40%;
+        box-sizing: border-box;
+        margin: 0.5em;
+        input {
+            width: 100%;
+        }
+        &.address, &.profession {
+            width: 100%;
+        }
+        &.level, &.date, &.time {
+            width: 30%;
+        }
+    }
+    .level-integration {
+        text-align: left;
+        button {
+            display: block;
+            text-align: left;
+            span {
+                display: inline-block;
+                svg {
+                    vertical-align: middle;
+                }
+            }
+            font: {
+                family: 'Baloo Chettan 2', sans-serif;
+                size: 0.8em;
+            }
+            text-transform: unset;
+            letter-spacing: unset;
+        }
+    }
+    .exp {
+        .desc1, .desc2 {
+            width: 100%;
+        }
+    }
+    .project, .skills {
+        .fill {
+            width: 100%;
+        }
+    }
+    .submit {
+        display: block;
+        max-width: 20em;
+        margin: auto;
+        font: {
+            family: 'Baloo Chettan 2', sans-serif;
+            size: 0.9em;
+        }
+        letter-spacing: unset;
+        background: #2962ff;
+        color: whitesmoke;
+    }
+}

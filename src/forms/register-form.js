@@ -5,35 +5,15 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Button from '@material-ui/core/Button';
 
+import './_register-form.scss';
+
+import Fill from './fill';
+import { postForData } from '../utils';
+
 const SEXES = ['homme', 'femme'];
 const PROFESSIONS = ['Etudiant', 'Employe', 'Autre'];
 const LEVELS = ['1ere annee de Mastere', '2eme annee de Mastere'];
 const HOURS = ['11h', '12h', '15h', '17h'];
-
-import './_forms.scss';
-
-const Fill = ({name, label, options, hdler, required}) => {
-    const handleChange = (val) => {
-        let dct = {};
-        dct[name] = val;
-        hdler(dct);
-    }
-
-    if (options) return <Autocomplete
-        className={'fill ' + name}
-        options={options}
-        getOptionLabel={(option) => option}
-        onChange={(e, newval) => handleChange(newval)}
-        renderInput={(params) => <TextField {...params} label={label} variant='outlined' required={required}/>}        
-    />
-
-    return <TextField 
-        required={required} 
-        className={'fill ' + name} 
-        label={label} 
-        onChange={e => handleChange(e.target.value)}
-    />
-}
 
 const FIELDS = [
     {name: 'lastname', label: 'Nom', required: true},
@@ -49,24 +29,11 @@ const FIELDS = [
     {name: 'time', label: 'Heure de votre RDV d\'admission', options: HOURS, required: true}
 ]
 
-async function postForData(endpoint, dict={}) {
-    let response = await fetch(endpoint, {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dict)
-    });
-    let data = await response.json();
-    return data;
-}
-
 class RegisterForm extends Component {
     state = {sent: false}
 
     changeHdler = (dct) => {
         this.setState(dct);
-        console.log(this.state);
     }
 
     handleSubmit = async () => {
@@ -85,4 +52,4 @@ class RegisterForm extends Component {
     }
 }
 
-export {RegisterForm};
+export default RegisterForm;
