@@ -30,15 +30,25 @@ const FIELDS = [
 ]
 
 class RegisterForm extends Component {
-    state = {sent: false}
+    state = {sent: false, err: false, errmsg: 'Le formulaire n\'est pas complet!!!'}
 
     changeHdler = (dct) => {
         this.setState(dct);
     }
 
     handleSubmit = async () => {
-        let data = await postForData('/register-submit', this.state);
-        if (data.status == 'ok') this.setState({sent: true})
+        if (!this.state.name | !this.state.email) {
+            this.setState({
+                err: true
+            })
+        }
+        else {
+            let data = await postForData('/register-submit', this.state);
+            if (data.status == 'ok') {
+                this.setState({sent: true});
+                window.location.href = 'https://google.com'; 
+            }
+        }
     }
 
     render() {
@@ -46,6 +56,7 @@ class RegisterForm extends Component {
             <h1>{this.state.sent? 'Merci de votre inscription': 'Informations Personelles'}</h1>
             {this.state.sent?null: <div className='form-container'>
                 {FIELDS.map((d, ix) => <Fill key={ix} {...d} hdler={this.changeHdler}/>)}
+                {this.state.err ? <p className='err'>{this.state.errmsg}</p>: null}
                 <Button className='submit' onClick={this.handleSubmit}>Validez votre inscription</Button>
             </div>}
         </div>

@@ -80,7 +80,7 @@ const Choice = (props) => {
 }
 
 export default class CandidateForm extends Component {
-    state = {sent: false, choice: -1, choiceText: '', links: []}
+    state = {sent: false, choice: -1, choiceText: '', links: [], err: false, errmsg: 'Le formulaire n\'est pas complet'}
 
     changeHdler = (dct) => {
         this.setState(dct);
@@ -101,8 +101,17 @@ export default class CandidateForm extends Component {
     }
 
     handleSubmit = async () => {
-        let data = await postForData('/register-submit', this.state);
-        if (data.status == 'ok') this.setState({sent: true})
+        if (!this.state.name | !this.state.email) {
+            this.setState({
+                err: true
+            })
+        } else {
+            let data = await postForData('/register-submit', this.state);
+            if (data.status == 'ok') {
+                this.setState({sent: true});
+                window.location.href = 'https://google.com'; 
+            }
+        }
     }
 
     render() {
@@ -155,7 +164,10 @@ export default class CandidateForm extends Component {
             </div>
             }
             {this.state.sent? null:
-                <Button className='submit' onClick={this.handleSubmit}>Validez votre inscription</Button>
+                <div>
+                    {this.state.err? <p className='err'>{this.state.errmsg}</p>: null}
+                    <Button className='submit' onClick={this.handleSubmit}>Validez votre inscription</Button>
+                </div>
             }
 
         </div>
