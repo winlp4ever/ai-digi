@@ -79,7 +79,13 @@ app.post('/post-file', (req, res) => {
 
 app.post('/register-submit', (req, res) => {
     console.log(req.body);
-    utils.mailTo('ha-quang.le@theaiinstitute.ai', 'winlp4ever@gmail.com', 'test', JSON.stringify(req.body));
+    utils.mailTo('ha-quang.le@theaiinstitute.ai', 'winlp4ever@gmail.com', 'New Inscription', JSON.stringify(req.body));
+    res.json({status: 'ok'})
+})
+
+app.post('/candidate-submit', (req, res) => {
+    console.log(req.body);
+    utils.mailTo('ha-quang.le@theaiinstitute.ai', 'winlp4ever@gmail.com', 'New Candidature', JSON.stringify(req.body));
     res.json({status: 'ok'})
 })
 

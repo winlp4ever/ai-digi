@@ -37,7 +37,7 @@ class RegisterForm extends Component {
     }
 
     handleSubmit = async () => {
-        if (!this.state.name | !this.state.email) {
+        if (false) {
             this.setState({
                 err: true
             })
@@ -46,7 +46,7 @@ class RegisterForm extends Component {
             let data = await postForData('/register-submit', this.state);
             if (data.status == 'ok') {
                 this.setState({sent: true});
-                window.location.href = 'https://google.com'; 
+                window.location.href = 'http://ai-digital-transformation-school.com/merci-pour-votre-inscription/'; 
             }
         }
     }

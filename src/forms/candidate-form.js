@@ -101,15 +101,15 @@ export default class CandidateForm extends Component {
     }
 
     handleSubmit = async () => {
-        if (!this.state.name | !this.state.email) {
+        if (false) {
             this.setState({
                 err: true
             })
         } else {
-            let data = await postForData('/register-submit', this.state);
+            let data = await postForData('/candidate-submit', this.state);
             if (data.status == 'ok') {
                 this.setState({sent: true});
-                window.location.href = 'https://google.com'; 
+                window.location.href = 'http://ai-digital-transformation-school.com/merci-dossier-candidature/'; 
             }
         }
     }
