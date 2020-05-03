@@ -77,6 +77,11 @@ app.post('/post-file', (req, res) => {
     utils.uploadToS3(req.body.file, req.body.fn, msg => {res.json(msg)});
 })
 
+app.post('/register-submit', (req, res) => {
+    console.log(req.body);
+    res.json({status: 'ok'})
+})
+
 
 // on terminating the process
 process.on('SIGINT', _ => {

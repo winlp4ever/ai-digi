@@ -36,6 +36,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.51",
     "@microlink/react": "^4.5.1",
     "@nteract/mathjax": "^4.0.7",
     "@svgr/webpack": "^5.4.0",
