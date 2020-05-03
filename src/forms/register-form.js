@@ -37,7 +37,7 @@ class RegisterForm extends Component {
     }
 
     handleSubmit = async () => {
-        if (false) {
+        if (!this.state.email) {
             this.setState({
                 err: true
             })

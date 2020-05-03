@@ -78,14 +78,43 @@ app.post('/post-file', (req, res) => {
 })
 
 app.post('/register-submit', (req, res) => {
-    console.log(req.body);
-    utils.mailTo('ha-quang.le@theaiinstitute.ai', 'winlp4ever@gmail.com', 'New Inscription', JSON.stringify(req.body));
+    utils.mailTo('contact@ai-digital-transformation-school.com', 'contact@ai-digital-transformation-school.com', 'New Inscription', JSON.stringify(req.body, null, 4));
+    const msg = `
+    <p>Bonjour,\n</p> 
+    <p>L'équipe de l'IA-TD est prête à vous accueillir à l'une de nos journée d'admission. Veillez à bien remplir en ligne votre dossier de candidature avant notre rencontre. lien pour remplir le dossier de candidature
+    <a href='http://35.180.234.167:5000/candidate-form'>here</a>
+    </p>
+
+    <p>A très vite !</p>
+    <p>Bien cordialement,</p>
+    <p>L'équipe IA-TD</p>
+    `
+    try {
+        utils.mailTo('contact@ai-digital-transformation-school.com', req.body.email, 'Thank you for your inscription', msg);
+    } catch (err) {
+        console.log(err);
+    }
+
     res.json({status: 'ok'})
 })
 
 app.post('/candidate-submit', (req, res) => {
-    console.log(req.body);
-    utils.mailTo('ha-quang.le@theaiinstitute.ai', 'winlp4ever@gmail.com', 'New Candidature', JSON.stringify(req.body));
+    utils.mailTo('contact@ai-digital-transformation-school.com', 'contact@ai-digital-transformation-school.com', 'New Candidature', JSON.stringify(req.body, null, 4));
+    
+    const msg = `
+    <p>Bonjour,\n</p> 
+    <p>L'équipe de l'IA-TD est a bien reçu votre dossier de candidature !
+    </p>
+
+    <p>A très vite !</p>
+    <p>Bien cordialement,</p>
+    <p>L'équipe IA-TD</p>
+    `
+    try {
+        utils.mailTo('contact@ai-digital-transformation-school.com', req.body.email, 'Thank you for your candidature', msg);
+    } catch (err) {
+        console.log(err);
+    }
     res.json({status: 'ok'})
 })
 
