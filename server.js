@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const http = require('http');
+const { v4: uuidv4 } = require('uuid');
 
 const utils = require('./utils');
 
@@ -74,7 +75,7 @@ app.get('*', (req, res, next) => {
 });
 
 app.post('/post-file', (req, res) => {
-    utils.uploadToS3(req.body.file, req.body.fn, msg => {res.json(msg)});
+    utils.uploadToS3(req.body.file, uuidv4() + '-' + req.body.fn, msg => {res.json(msg)});
 })
 
 app.post('/register-submit', (req, res) => {
