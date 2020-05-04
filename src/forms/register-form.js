@@ -13,6 +13,8 @@ import { postForData } from '../utils';
 const SEXES = ['homme', 'femme'];
 const PROFESSIONS = ['Etudiant', 'Employe', 'Autre'];
 const LEVELS = ['1ere annee de Mastere', '2eme annee de Mastere'];
+const DAYS = ['5th May', '6th May', '7th May', '11th May', '12th May', '13th May', '14th May', '15th May', 
+    '18th May', '19th May', '20th May', '21st May', '22nd May', '25th May', '26th May', '27th May', '28th May', '29th May']
 const HOURS = ['11h', '12h', '15h', '17h'];
 
 const FIELDS = [
@@ -25,7 +27,7 @@ const FIELDS = [
     {name: 'address', label: 'Adresse', required: true},
     {name: 'profession', label: 'Situation Actuelle', options: PROFESSIONS, required: true},
     {name: 'level', label: 'Niveau d\'integration', options: LEVELS, required: true},
-    {name: 'date', label: 'Date de votre RDV d\'admission', required: true},
+    {name: 'date', label: 'Date de votre RDV d\'admission', options: DAYS, required: true},
     {name: 'time', label: 'Heure de votre RDV d\'admission', options: HOURS, required: true}
 ]
 
