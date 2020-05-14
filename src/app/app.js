@@ -10,7 +10,7 @@ import RegisterForm from '../forms/register-form';
 import CandidateForm from '../forms/candidate-form';
 import HubspotForm from 'react-hubspot-form'
 
-
+import './_app.scss';
 const App = (props) => {
     return <Router>
         <div className='app'>
