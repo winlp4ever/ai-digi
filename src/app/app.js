@@ -20,6 +20,7 @@ const App = (props) => {
                 </Route>
                 <Route exact path="/">
                 <HubspotForm
+                    className='hs-form-register'
                     portalId='7708794'
                     formId='8ff4813b-865a-4138-8f73-848338d26bf4'
                     onSubmit={() => console.log('Submit!')}
