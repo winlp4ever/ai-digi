@@ -84,7 +84,6 @@ export default class CandidateForm extends Component {
 
     changeHdler = (dct) => {
         this.setState(dct);
-        console.log(this.state);
     }
 
     choiceHdler = (i) => {

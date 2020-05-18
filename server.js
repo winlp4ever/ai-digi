@@ -100,8 +100,12 @@ app.post('/register-submit', (req, res) => {
 })
 
 app.post('/candidate-submit', (req, res) => {
-    utils.mailTo('contact@ai-digital-transformation-school.com', 'contact@ai-digital-transformation-school.com', 'New Candidature', JSON.stringify(req.body, null, 4));
-    
+    let txt = '<p>Candidate info: </p>';
+    for(let [k, v] of Object.entries(req.body)) {
+        if (k != 'err' & k != 'sent' & k != 'errmsg')
+            txt += `<p>${k}: ${v} </p>`
+    }
+    utils.mailTo('contact@ai-digital-transformation-school.com', 'contact@ai-digital-transformation-school.com', 'New Candidature', txt);
     const msg = `
     <p>Bonjour,\n</p> 
     <p>L'équipe de l'IA-TD est a bien reçu votre dossier de candidature !
