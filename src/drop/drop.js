@@ -38,7 +38,10 @@ const Drop = (props) => {
             {
                 isDragActive ?
                 <p>Drop the files here ...</p> :
-                <p><img className='upload-icon' src={require('../../imgs/upload.svg')} />{props.msg}</p>
+                <p>
+                    <img className='upload-icon' src={require('../../imgs/upload.svg')} />
+                    <span dangerouslySetInnerHTML={{__html: props.msg}}></span>
+                </p>
             }
         </div>
     )

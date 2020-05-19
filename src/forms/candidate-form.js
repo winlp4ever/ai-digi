@@ -61,10 +61,10 @@ const SKILLS = [
 ]
 
 const ASKFORDOCS = [
-    "Telecharger une photocopie d'une piece d'identite * - Cliquer ici",
-    "Telecharger votre Curriculum Vitae (CV) * - Cliquer ici",
-    'Telecharger des releves de notes des deux dernieres annees * - Cliquer ici',
-    'Telecharger les derniers diplomes obtenus * - Cliquer ici'
+    "Telecharger une photocopie d'une piece d'identite * - <b>Cliquer ici</b>",
+    "Telecharger votre Curriculum Vitae (CV) * - <b>Cliquer ici</b>",
+    'Telecharger des releves de notes des deux dernieres annees * - <b>Cliquer ici</b>',
+    'Telecharger les derniers diplomes obtenus * - <b>Cliquer ici</b>'
 ]
 
 const Choice = (props) => {
@@ -142,7 +142,7 @@ export default class CandidateForm extends Component {
             </div>}
             {this.state.sent? null:
             <div className='project'>
-                <h2>Projet Personel</h2>
+                <h2>Projet Personnel</h2>
                 <p><b>Quelles sont les motivations de votre candidature a l'IA School</b></p>
                 <Fill name='why' label='les motivations' hdler={this.changeHdler}/>
                 <p><b>Avez vous des competences en programmation</b></p>
