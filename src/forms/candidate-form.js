@@ -50,9 +50,6 @@ const EXPS2 = [
 ]
 
 const EXPCHOICES = [
-    'Bachelor 1 in Artificial Intelligence and Business',
-    'Bachelor 2 in Artificial Intelligence and Business',
-    'Bachelor 3 in Artificial Intelligence and Business',
     'Master 1 in Artificial Intelligence and Management',
     'Master 2 in Artificial Intelligence and Management'
 ]
@@ -64,10 +61,10 @@ const SKILLS = [
 ]
 
 const ASKFORDOCS = [
-    "Telecharger une photocopie d'une piece d'identite *",
-    "Telecharger votre Curriculum Vitae (CV) *",
-    'Telecharger des releves de notes des deux dernieres annees *',
-    'Telecharger les derniers diplomes obtenus *'
+    "Telecharger une photocopie d'une piece d'identite * - Cliquer ici",
+    "Telecharger votre Curriculum Vitae (CV) * - Cliquer ici",
+    'Telecharger des releves de notes des deux dernieres annees * - Cliquer ici',
+    'Telecharger les derniers diplomes obtenus * - Cliquer ici'
 ]
 
 const Choice = (props) => {
@@ -145,7 +142,7 @@ export default class CandidateForm extends Component {
             </div>}
             {this.state.sent? null:
             <div className='project'>
-                <h2>Projet Personelle</h2>
+                <h2>Projet Personel</h2>
                 <p><b>Quelles sont les motivations de votre candidature a l'IA School</b></p>
                 <Fill name='why' label='les motivations' hdler={this.changeHdler}/>
                 <p><b>Avez vous des competences en programmation</b></p>
